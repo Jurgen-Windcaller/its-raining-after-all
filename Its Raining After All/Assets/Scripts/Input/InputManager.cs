@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class InputManager : MonoBehaviour
 {
     [HideInInspector] public float groundMoveRaw;
-    [HideInInspector] public bool groundJumpRaw;
+    [HideInInspector] public bool jumping;
 
     public void OnMove(InputAction.CallbackContext ctx)
     {
@@ -15,6 +15,6 @@ public class InputManager : MonoBehaviour
 
     public void OnJump(InputAction.CallbackContext ctx)
     {
-        groundJumpRaw = ctx.ReadValueAsButton();
+        jumping = ctx.ReadValueAsButton();
     }
 }

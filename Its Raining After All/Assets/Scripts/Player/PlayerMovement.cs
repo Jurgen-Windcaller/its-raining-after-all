@@ -11,12 +11,13 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask groundedMask;
     [SerializeField] private Transform floorTransform;
 
-    private InputManager input;
-    private Rigidbody2D rb;
+    [HideInInspector] public InputManager input;
+    [HideInInspector] public Rigidbody2D rb;
+
+    [HideInInspector] public bool grounded;
+
     private Vector2 moveVec;
     private Collider2D ground;
-
-    private bool grounded;
 
     // Start is called before the first frame update
     void Start()

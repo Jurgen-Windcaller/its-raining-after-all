@@ -5,8 +5,9 @@ using UnityEngine;
 public class PlayerAnimation : MonoBehaviour
 {
     [HideInInspector] public int facing;
+    [HideInInspector] public int yVel;
 
-    private InputManager inputManager;
+    private PlayerMovement playerMovement;
     private Animator animator;
 
     private int prevFaceDir = 1;
@@ -14,16 +15,20 @@ public class PlayerAnimation : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        inputManager = GetComponent<InputManager>();
+        playerMovement = GetComponent<PlayerMovement>();
         animator = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        facing = GetFacingDir(inputManager.groundMoveRaw);
+        facing = GetFacingDir(playerMovement.input.groundMoveRaw);
+        yVel = GetYVelocity(playerMovement.rb.velocity.y);
 
-        animator.SetFloat("Direction", inputManager.groundMoveRaw);
+        animator.SetBool("Airborne", !playerMovement.grounded);
+
+        animator.SetFloat("Direction", playerMovement.input.groundMoveRaw);
+        animator.SetFloat("YVelocity", yVel);
         animator.SetFloat("Facing", facing);
     }
 
@@ -40,5 +45,13 @@ public class PlayerAnimation : MonoBehaviour
             default:
                 return prevFaceDir;
         }
+    }
+
+    private int GetYVelocity(float rawVelocity)
+    {
+        if (rawVelocity > 0) { return 1; }
+
+        // if it is less than or equal to 0
+        return -1;
     }
 }

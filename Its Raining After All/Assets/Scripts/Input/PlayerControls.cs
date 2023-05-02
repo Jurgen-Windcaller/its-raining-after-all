@@ -147,6 +147,133 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Water"",
+            ""id"": ""82e0b631-f05c-464e-be01-2b1bf6a4784c"",
+            ""actions"": [
+                {
+                    ""name"": ""Move"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""b4a9ea86-e34c-474a-9c4c-5d5f9c82db5b"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": ""WASD"",
+                    ""id"": ""271153d3-982b-4950-8f2f-d3071ab4df38"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""b32ec500-dcbc-40b6-8810-08a79ee5b92c"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""bf539abd-60ee-44d2-b7b9-a2458cab53ce"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""ee7049c4-b917-48f0-a5e9-416b53c88f74"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""d138ac4f-5a50-4ad3-970a-51d7f5d0e4d1"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Arrows"",
+                    ""id"": ""f5d6afe1-790b-42bb-a05f-ce7a0f17c716"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""7eb8e860-a565-43d0-9830-78a7fe717580"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""a741d969-0e8a-44d5-b6ec-b168c6718df8"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""d3b60fa0-aeac-4df2-a1d8-fdd5f9952ffb"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""01db0ee7-4bfa-4b19-bbfb-ea4304654cdd"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -155,6 +282,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Ground = asset.FindActionMap("Ground", throwIfNotFound: true);
         m_Ground_Move = m_Ground.FindAction("Move", throwIfNotFound: true);
         m_Ground_Jump = m_Ground.FindAction("Jump", throwIfNotFound: true);
+        // Water
+        m_Water = asset.FindActionMap("Water", throwIfNotFound: true);
+        m_Water_Move = m_Water.FindAction("Move", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -266,9 +396,59 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         }
     }
     public GroundActions @Ground => new GroundActions(this);
+
+    // Water
+    private readonly InputActionMap m_Water;
+    private List<IWaterActions> m_WaterActionsCallbackInterfaces = new List<IWaterActions>();
+    private readonly InputAction m_Water_Move;
+    public struct WaterActions
+    {
+        private @PlayerControls m_Wrapper;
+        public WaterActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Move => m_Wrapper.m_Water_Move;
+        public InputActionMap Get() { return m_Wrapper.m_Water; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(WaterActions set) { return set.Get(); }
+        public void AddCallbacks(IWaterActions instance)
+        {
+            if (instance == null || m_Wrapper.m_WaterActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_WaterActionsCallbackInterfaces.Add(instance);
+            @Move.started += instance.OnMove;
+            @Move.performed += instance.OnMove;
+            @Move.canceled += instance.OnMove;
+        }
+
+        private void UnregisterCallbacks(IWaterActions instance)
+        {
+            @Move.started -= instance.OnMove;
+            @Move.performed -= instance.OnMove;
+            @Move.canceled -= instance.OnMove;
+        }
+
+        public void RemoveCallbacks(IWaterActions instance)
+        {
+            if (m_Wrapper.m_WaterActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IWaterActions instance)
+        {
+            foreach (var item in m_Wrapper.m_WaterActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_WaterActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public WaterActions @Water => new WaterActions(this);
     public interface IGroundActions
     {
         void OnMove(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+    }
+    public interface IWaterActions
+    {
+        void OnMove(InputAction.CallbackContext context);
     }
 }

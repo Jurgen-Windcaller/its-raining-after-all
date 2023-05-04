@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovementGround : MonoBehaviour
 {
     [SerializeField] private float groundSpeed = 5f;
     [SerializeField] private float jumpForce = 5f;
@@ -30,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         Vector2 floor = new Vector2(floorTransform.position.x, floorTransform.position.y);
-        ground = Physics2D.OverlapCircle(floor, 0.01f, groundedMask);
+        ground = Physics2D.OverlapCircle(floor, 0.07f, groundedMask);
 
         if (ground != null)
         {
@@ -45,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(floorTransform.position, 0.01f);
+        Gizmos.DrawWireSphere(floorTransform.position, 0.07f);
     }
 
     void FixedUpdate()

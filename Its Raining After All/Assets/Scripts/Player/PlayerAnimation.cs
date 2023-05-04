@@ -7,7 +7,7 @@ public class PlayerAnimation : MonoBehaviour
     [HideInInspector] public int facing;
     [HideInInspector] public int yVel;
 
-    private PlayerMovement playerMovement;
+    private PlayerMovementGround playerMovement;
     private Animator animator;
 
     private int prevFaceDir = 1;
@@ -15,7 +15,7 @@ public class PlayerAnimation : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerMovement = GetComponent<PlayerMovement>();
+        playerMovement = GetComponent<PlayerMovementGround>();
         animator = GetComponentInChildren<Animator>();
     }
 

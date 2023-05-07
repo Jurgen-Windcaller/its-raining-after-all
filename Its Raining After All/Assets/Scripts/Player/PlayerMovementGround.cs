@@ -28,17 +28,7 @@ public class PlayerMovementGround : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        Vector2 floor = new Vector2(floorTransform.position.x, floorTransform.position.y);
-        ground = Physics2D.OverlapCircle(floor, 0.07f, groundedMask);
-
-        if (ground != null)
-        {
-            grounded = true;
-        }
-        else
-        {
-            grounded = false;
-        }
+        
     }
 
     private void OnDrawGizmos()
@@ -49,12 +39,14 @@ public class PlayerMovementGround : MonoBehaviour
 
     void FixedUpdate()
     {
+        ground = Physics2D.OverlapCircle(floorTransform.position, 0.07f, groundedMask);
+
+        if (ground != null) { grounded = true; }
+        else { grounded = false; }
+
         MovePlayer();
 
-        if (input.jumping)
-        {
-            JumpPlayer();
-        }
+        if (input.jumping) { JumpPlayer(); }
     }
 
     private void MovePlayer()

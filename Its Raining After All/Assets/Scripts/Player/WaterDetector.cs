@@ -49,7 +49,7 @@ public class WaterDetector : MonoBehaviour
         switch (actionMap.name)
         {
             case "Water":
-                if (!seaMove.isActiveAndEnabled) 
+                if (!seaMove.enabled) 
                 { 
                     seaMove.enabled = true; 
                     groundMove.enabled = false; 
@@ -57,7 +57,7 @@ public class WaterDetector : MonoBehaviour
 
                 break;
             case "Ground":
-                if (!groundMove.isActiveAndEnabled) 
+                if (!groundMove.enabled) 
                 { 
                     groundMove.enabled = true; 
                     seaMove.enabled = false; 

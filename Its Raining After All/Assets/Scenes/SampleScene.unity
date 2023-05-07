@@ -297,6 +297,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   groundMoveRaw: 0
   jumping: 0
+  seaMoveRaw: {x: 0, y: 0}
 --- !u!114 &315728199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -326,7 +327,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 315728198}
         m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
-        m_MethodName: OnMove
+        m_MethodName: OnGroundMove
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -355,14 +356,26 @@ MonoBehaviour:
     m_ActionId: 917d6a5b-3240-49ad-9f44-65a031442129
     m_ActionName: Ground/Jump[/Keyboard/space,/Keyboard/upArrow]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 315728198}
+        m_TargetAssemblyTypeName: InputManager, Assembly-CSharp
+        m_MethodName: OnSeaMove
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: b4a9ea86-e34c-474a-9c4c-5d5f9c82db5b
     m_ActionName: Water/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Ground
   m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 519420031}
 --- !u!114 &315728201
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -389,6 +402,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0deaace218304be4fa79ed970e4955e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 5
+  waterGravity: 8
 --- !u!114 &315728203
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1744,8 +1759,8 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1497553449
+  m_SortingLayer: 1
   m_SortingOrder: 1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -2544,7 +2559,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16

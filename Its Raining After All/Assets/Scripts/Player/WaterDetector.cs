@@ -24,8 +24,8 @@ public class WaterDetector : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (inWater == true) { inputActions.SwitchCurrentActionMap("Water"); }
-        else { inputActions.SwitchCurrentActionMap("Ground"); }
+        if (inWater && inputActions.currentActionMap.name != "Water") { inputActions.SwitchCurrentActionMap("Water"); }
+        else if (!inWater && inputActions.currentActionMap.name != "Ground") { inputActions.SwitchCurrentActionMap("Ground"); }
 
         SwitchMovementScript(inputActions.currentActionMap);
     }
@@ -46,20 +46,22 @@ public class WaterDetector : MonoBehaviour
 
     private void SwitchMovementScript(InputActionMap actionMap)
     {
-        Debug.Log(actionMap.name);
-
         switch (actionMap.name)
         {
             case "Water":
-                Debug.Log("Switching to water");
-                seaMove.enabled = true;
-                groundMove.enabled = false;
+                if (!seaMove.isActiveAndEnabled) 
+                { 
+                    seaMove.enabled = true; 
+                    groundMove.enabled = false; 
+                }
 
                 break;
             case "Ground":
-                Debug.Log("Switching to ground");
-                groundMove.enabled = true;
-                seaMove.enabled = false;
+                if (!groundMove.isActiveAndEnabled) 
+                { 
+                    groundMove.enabled = true; 
+                    seaMove.enabled = false; 
+                }
 
                 break;
         }

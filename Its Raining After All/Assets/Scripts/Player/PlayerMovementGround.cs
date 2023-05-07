@@ -19,7 +19,7 @@ public class PlayerMovementGround : MonoBehaviour
     private Collider2D ground;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         input = GetComponent<InputManager>();
         rb = GetComponent<Rigidbody2D>();

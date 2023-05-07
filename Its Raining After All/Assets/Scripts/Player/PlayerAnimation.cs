@@ -13,7 +13,7 @@ public class PlayerAnimation : MonoBehaviour
     private int prevFaceDir = 1;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         playerMovement = GetComponent<PlayerMovementGround>();
         animator = GetComponentInChildren<Animator>();

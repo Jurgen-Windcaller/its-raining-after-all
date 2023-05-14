@@ -388,7 +388,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbd598c2dbba07543b899b9283a19cc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  facing: 0
+  facingGround: 0
+  facingSea: 0
   yVel: 0
 --- !u!114 &315728202
 MonoBehaviour:
@@ -402,6 +403,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0deaace218304be4fa79ed970e4955e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  input: {fileID: 0}
   speed: 5
   waterGravity: 8
 --- !u!114 &315728203
@@ -17921,7 +17923,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.703125, y: 0.578125}
+    oldSize: {x: 0.546875, y: 1}
     newSize: {x: 6.72, y: 9.76}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

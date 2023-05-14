@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class PlayerMovementSea : MonoBehaviour
 {
+    [HideInInspector] public InputManager input;
+
     [SerializeField] private float speed = 5f;
     [SerializeField] private float waterGravity = 8f;
-
-    private InputManager input;
+    
     private Rigidbody2D rb;
     private Vector2 moveVal;
 

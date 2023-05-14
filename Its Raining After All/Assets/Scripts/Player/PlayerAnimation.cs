@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class PlayerAnimation : MonoBehaviour
 {
-    [HideInInspector] public int facing;
+    [HideInInspector] public int facingGround;
+    [HideInInspector] public int facingSea;
     [HideInInspector] public int yVel;
 
-    private PlayerMovementGround playerMovement;
+    private PlayerMovementGround groundMove;
+    private WaterDetector waterDetector;
+    private InputManager input;
     private Animator animator;
 
     private int prevFaceDir = 1;
@@ -15,21 +18,30 @@ public class PlayerAnimation : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        playerMovement = GetComponent<PlayerMovementGround>();
+        groundMove = GetComponent<PlayerMovementGround>();
+        waterDetector = GetComponent<WaterDetector>();
+        input = GetComponent<InputManager>();
+
         animator = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        facing = GetFacingDir(playerMovement.input.groundMoveRaw);
-        yVel = GetYVelocity(playerMovement.rb.velocity.y);
+        facingGround = GetFacingDir(input.groundMoveRaw);
+        facingSea = GetFacingDir(input.seaMoveRaw.x);
 
-        animator.SetBool("Airborne", !playerMovement.grounded);
+        yVel = GetYVelocity(groundMove.rb.velocity.y);
 
-        animator.SetFloat("Direction", playerMovement.input.groundMoveRaw);
+        animator.SetBool("In Water", waterDetector.inWater);
+        animator.SetBool("Airborne", !groundMove.grounded);
         animator.SetFloat("YVelocity", yVel);
-        animator.SetFloat("Facing", facing);
+
+        animator.SetFloat("Direction", input.groundMoveRaw);
+        animator.SetFloat("Water Direction", input.seaMoveRaw.x);
+
+        animator.SetFloat("Facing", facingGround);
+        animator.SetFloat("Water Facing", facingSea);
     }
 
     private int GetFacingDir(float moveDir)

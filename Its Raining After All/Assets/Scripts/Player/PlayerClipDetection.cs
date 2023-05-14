@@ -8,7 +8,7 @@ public class PlayerClipDetection : MonoBehaviour
 
     private void Update()
     {
-        facingDir = -GetComponent<PlayerAnimation>().facing;
+        facingDir = -GetComponent<PlayerAnimation>().facingGround;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

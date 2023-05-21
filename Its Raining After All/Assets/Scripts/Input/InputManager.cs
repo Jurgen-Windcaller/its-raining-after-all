@@ -3,25 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class InputManager : MonoBehaviour
+public class InputManager : Singleton<InputManager>
 {
-    [HideInInspector] public float groundMoveRaw;
-    [HideInInspector] public bool jumping;
+    private float groundMoveRaw;
 
-    [HideInInspector] public Vector2 seaMoveRaw;
+    private bool jumping, interacting, submitting;
 
-    public void OnGroundMove(InputAction.CallbackContext ctx)
-    {
-        groundMoveRaw = ctx.ReadValue<float>();
-    }
+    private Vector2 seaMoveRaw;
 
-    public void OnJump(InputAction.CallbackContext ctx)
-    {
-        jumping = ctx.ReadValueAsButton();
-    }
+    #region PlayerInput Functions
+    public void OnGroundMove(InputAction.CallbackContext ctx) { groundMoveRaw = ctx.ReadValue<float>(); }
+    public void OnJump(InputAction.CallbackContext ctx) { jumping = ctx.ReadValueAsButton(); }
+    public void OnSeaMove(InputAction.CallbackContext ctx) { seaMoveRaw = ctx.ReadValue<Vector2>(); }
+    public void OnInteract(InputAction.CallbackContext ctx) { interacting = ctx.ReadValueAsButton(); }
+    public void OnSubmit(InputAction.CallbackContext ctx) { submitting = ctx.ReadValueAsButton(); }
+    #endregion
 
-    public void OnSeaMove(InputAction.CallbackContext ctx)
-    {
-        seaMoveRaw = ctx.ReadValue<Vector2>();
-    }
+    #region Getters
+    public float GetGroundMoveRaw() { return groundMoveRaw; }
+    public bool GetJumping() { return jumping; }
+    public bool GetInteracting() {  return interacting; }
+    public bool GetSubmitting() {  return submitting; }
+    public Vector2 GetSeaMoveRaw() { return seaMoveRaw; }
+    #endregion
 }

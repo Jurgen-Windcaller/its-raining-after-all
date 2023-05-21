@@ -10,7 +10,6 @@ public class PlayerAnimation : MonoBehaviour
 
     private PlayerMovementGround groundMove;
     private WaterDetector waterDetector;
-    private InputManager input;
     private Animator animator;
 
     private int prevFaceDir = 1;
@@ -20,7 +19,6 @@ public class PlayerAnimation : MonoBehaviour
     {
         groundMove = GetComponent<PlayerMovementGround>();
         waterDetector = GetComponent<WaterDetector>();
-        input = GetComponent<InputManager>();
 
         animator = GetComponentInChildren<Animator>();
     }
@@ -28,8 +26,8 @@ public class PlayerAnimation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        facingGround = GetFacingDir(input.groundMoveRaw);
-        facingSea = GetFacingDir(input.seaMoveRaw.x);
+        facingGround = GetFacingDir(InputManager.Instance.GetGroundMoveRaw());
+        facingSea = GetFacingDir(InputManager.Instance.GetSeaMoveRaw().x);
 
         yVel = GetYVelocity(groundMove.rb.velocity.y);
 
@@ -37,8 +35,8 @@ public class PlayerAnimation : MonoBehaviour
         animator.SetBool("Airborne", !groundMove.grounded);
         animator.SetFloat("YVelocity", yVel);
 
-        animator.SetFloat("Direction", input.groundMoveRaw);
-        animator.SetFloat("Water Direction", input.seaMoveRaw.x);
+        animator.SetFloat("Direction", InputManager.Instance.GetGroundMoveRaw());
+        animator.SetFloat("Water Direction", InputManager.Instance.GetSeaMoveRaw().x);
 
         animator.SetFloat("Facing", facingGround);
         animator.SetFloat("Water Facing", facingSea);
@@ -51,9 +49,11 @@ public class PlayerAnimation : MonoBehaviour
             case -1f:
                 prevFaceDir = -1;
                 return -1;
+
             case 1f:
                 prevFaceDir = 1;
                 return 1;
+
             default:
                 return prevFaceDir;
         }

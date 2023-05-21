@@ -10,7 +10,6 @@ public class PlayerMovementGround : MonoBehaviour
     [SerializeField] private LayerMask groundedMask;
     [SerializeField] private Transform floorTransform;
 
-    [HideInInspector] public InputManager input;
     [HideInInspector] public Rigidbody2D rb;
 
     [HideInInspector] public bool grounded;
@@ -21,7 +20,6 @@ public class PlayerMovementGround : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        input = GetComponent<InputManager>();
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -46,12 +44,12 @@ public class PlayerMovementGround : MonoBehaviour
 
         MovePlayer();
 
-        if (input.jumping) { JumpPlayer(); }
+        if (InputManager.Instance.GetJumping()) { JumpPlayer(); }
     }
 
     private void MovePlayer()
     {
-        float moveVal = input.groundMoveRaw * groundSpeed * Time.deltaTime;
+        float moveVal = InputManager.Instance.GetGroundMoveRaw() * groundSpeed * Time.deltaTime;
         moveVec = new Vector2(moveVal, rb.velocity.y);
 
         rb.velocity = moveVec;

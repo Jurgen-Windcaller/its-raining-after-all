@@ -48,3 +48,6 @@ TagManager:
   - name: NPC
     uniqueID: 1086847675
     locked: 0
+  - name: Worldspace UI
+    uniqueID: 2750649461
+    locked: 0

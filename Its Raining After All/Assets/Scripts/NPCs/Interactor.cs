@@ -4,22 +4,39 @@ using UnityEngine;
 
 public class Interactor : MonoBehaviour
 {
-    public bool inInteractableRange;
+    [SerializeField] private GameObject interactableIcon;
+    [SerializeField] private TextAsset textJSON;
 
-    [SerializeField] private SpriteRenderer interactableIcon;
+    private GameObject parent;
+
+    private bool inInteractableRange;
+
+    private void Start()
+    {
+        inInteractableRange = false;
+        interactableIcon.SetActive(false);
+    }
 
     private void Update()
     {
-        if (inInteractableRange) { interactableIcon.enabled = true; }
+        if (inInteractableRange)
+        {
+            if (InputManager.Instance.GetInteracting())
+            {
+                DialougeManager.Instance.EnterDialouge(textJSON, transform);
+            } 
+            else { interactableIcon.SetActive(true); } // change to set true when dialouge is not playing
+
+        } else { interactableIcon.SetActive(false); }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag == "Player") { inInteractableRange = true; }
+        if (collision.gameObject.tag == "Player") { inInteractableRange = true; }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "Player") { inInteractableRange = false; }
+        if (collision.gameObject.tag == "Player") { inInteractableRange = false; }
     }
 }

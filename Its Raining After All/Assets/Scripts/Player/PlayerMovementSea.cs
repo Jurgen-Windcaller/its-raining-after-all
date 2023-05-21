@@ -4,24 +4,16 @@ using UnityEngine;
 
 public class PlayerMovementSea : MonoBehaviour
 {
-    [HideInInspector] public InputManager input;
-
     [SerializeField] private float speed = 5f;
     [SerializeField] private float waterGravity = 8f;
     
     private Rigidbody2D rb;
     private Vector2 moveVal;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        input = GetComponent<InputManager>();
-    }
-
     // Update is called once per frame
     void Update()
     {
-        moveVal = input.seaMoveRaw * speed * Time.deltaTime;
+        moveVal = InputManager.Instance.GetSeaMoveRaw() * speed * Time.deltaTime;
     }
 
     private void FixedUpdate()

@@ -21,7 +21,7 @@ public class Interactor : MonoBehaviour
     {
         if (inInteractableRange)
         {
-            if (InputManager.Instance.GetInteracting())
+            if (InputManager.Instance.GetInteracting() && !DialougeManager.Instance.dialougePlaying)
             {
                 DialougeManager.Instance.EnterDialouge(textJSON, transform);
             } 

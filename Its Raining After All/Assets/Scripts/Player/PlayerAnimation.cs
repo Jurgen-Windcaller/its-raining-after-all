@@ -35,11 +35,23 @@ public class PlayerAnimation : MonoBehaviour
         animator.SetBool("Airborne", !groundMove.grounded);
         animator.SetFloat("YVelocity", yVel);
 
+        animator.SetFloat("Facing", facingGround);
+        animator.SetFloat("Water Facing", facingSea);
+
+        // So that falling animations will still be active and will stop themselves when the player touches the ground
+        //if (DialougeManager.Instance.dialougePlaying) { return; }
+
         animator.SetFloat("Direction", InputManager.Instance.GetGroundMoveRaw());
         animator.SetFloat("Water Direction", InputManager.Instance.GetSeaMoveRaw().x);
 
-        animator.SetFloat("Facing", facingGround);
-        animator.SetFloat("Water Facing", facingSea);
+
+        //Debug.Log("In Water: " + animator.GetBool("In Water"));
+        //Debug.Log("Airborne: " + animator.GetBool("Airborne"));
+        //Debug.Log("YVelocity: " + animator.GetFloat("YVelocity"));
+        //Debug.Log("Facing: " + animator.GetFloat("Facing"));
+        //Debug.Log("Water Facing: " + animator.GetFloat("In Water"));
+        //Debug.Log("Direction: " + animator.GetFloat("Direction"));
+        //Debug.Log("Water Direction: " + animator.GetFloat("In Water"));
     }
 
     private int GetFacingDir(float moveDir)

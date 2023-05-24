@@ -37,6 +37,8 @@ public class PlayerMovementGround : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (DialougeManager.Instance.dialougePlaying) { return; }
+
         ground = Physics2D.OverlapCircle(floorTransform.position, 0.07f, groundedMask);
 
         if (ground != null) { grounded = true; }

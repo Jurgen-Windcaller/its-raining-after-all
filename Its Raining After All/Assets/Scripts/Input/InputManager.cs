@@ -13,17 +13,33 @@ public class InputManager : Singleton<InputManager>
 
     #region PlayerInput Functions
     public void OnGroundMove(InputAction.CallbackContext ctx) { groundMoveRaw = ctx.ReadValue<float>(); }
-    public void OnJump(InputAction.CallbackContext ctx) { jumping = ctx.ReadValueAsButton(); }
     public void OnSeaMove(InputAction.CallbackContext ctx) { seaMoveRaw = ctx.ReadValue<Vector2>(); }
-    public void OnInteract(InputAction.CallbackContext ctx) { interacting = ctx.ReadValueAsButton(); }
-    public void OnSubmit(InputAction.CallbackContext ctx) { submitting = ctx.ReadValueAsButton(); }
+
+    public void OnJump(InputAction.CallbackContext ctx) 
+    { 
+        if (ctx.performed) { jumping = true; }
+        else if (ctx.canceled) { jumping = false; }
+    }
+
+    public void OnInteract(InputAction.CallbackContext ctx) 
+    {
+        if (ctx.performed) { interacting = true; }
+        else if (ctx.canceled) { interacting = false; }
+    }
+
+    public void OnSubmit(InputAction.CallbackContext ctx) 
+    {
+        if (ctx.performed) { submitting = true; }
+        else if (ctx.canceled) { submitting = false; }
+    }
+
     #endregion
 
     #region Getters
     public float GetGroundMoveRaw() { return groundMoveRaw; }
-    public bool GetJumping() { return jumping; }
-    public bool GetInteracting() {  return interacting; }
-    public bool GetSubmitting() {  return submitting; }
     public Vector2 GetSeaMoveRaw() { return seaMoveRaw; }
+    public bool GetJumping() { bool prevJumping = jumping; jumping = false; return prevJumping; }
+    public bool GetInteracting() { bool prevInteracting = interacting; interacting = false; return prevInteracting; }
+    public bool GetSubmitting() { bool prevSubmitting = submitting; submitting = false; return prevSubmitting; }
     #endregion
 }

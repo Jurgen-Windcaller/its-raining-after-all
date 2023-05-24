@@ -17,7 +17,9 @@ public class PlayerMovementSea : MonoBehaviour
     }
 
     private void FixedUpdate()
-    { 
+    {
+        if (DialougeManager.Instance.dialougePlaying) { return; }
+
         rb.MovePosition(rb.position + moveVal);
     }
 

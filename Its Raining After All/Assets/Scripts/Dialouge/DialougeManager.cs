@@ -6,13 +6,13 @@ using UnityEngine;
 
 public class DialougeManager : Singleton<DialougeManager>
 {
+    [HideInInspector] public bool dialougePlaying { get; private set; }
+
     [SerializeField] private GameObject dialougePanel;
     [SerializeField] private TextMeshProUGUI dialougeTextUI;
 
     private Story story;
     private Vector3 NPCPosition;
-
-    private bool dialougePlaying;
 
     // Start is called before the first frame update
     void Start()
@@ -25,11 +25,7 @@ public class DialougeManager : Singleton<DialougeManager>
     void Update()
     {
         if (!dialougePlaying) { return; }
-
-        if (InputManager.Instance.GetSubmitting())
-        {
-            ContinueDialouge();
-        }
+        if (InputManager.Instance.GetSubmitting()) { ContinueDialouge(); }
     }
 
     public void EnterDialouge(TextAsset JSON, Transform NPCTransform)

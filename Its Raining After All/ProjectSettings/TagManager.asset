@@ -45,6 +45,12 @@ TagManager:
   - name: Player
     uniqueID: 1497553449
     locked: 0
+  - name: Ocean
+    uniqueID: 112036021
+    locked: 0
+  - name: Foreground
+    uniqueID: 914807813
+    locked: 0
   - name: NPC
     uniqueID: 1086847675
     locked: 0

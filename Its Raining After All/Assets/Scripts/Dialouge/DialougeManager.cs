@@ -40,11 +40,13 @@ public class DialougeManager : Singleton<DialougeManager>
     private void ContinueDialouge()
     {
         if (story.canContinue) { dialougeTextUI.text = story.Continue(); }
-        else { ExitDialouge(); }
+        else { StartCoroutine(ExitDialogue()); }
     }
 
-    private void ExitDialouge()
+    private IEnumerator ExitDialogue()
     {
+        yield return new WaitForSeconds(0.2f);
+
         SetDialouge(false);
         dialougeTextUI.text = "";
     }
@@ -54,6 +56,6 @@ public class DialougeManager : Singleton<DialougeManager>
         dialougePlaying = set;
         dialougePanel.SetActive(set);
 
-        if (set == true) { dialougePanel.transform.position = new Vector3(NPCPosition.x, NPCPosition.y + 3.42f, 0f); }
+        if (set == true) { dialougePanel.transform.position = new Vector3(NPCPosition.x, NPCPosition.y + 2.5f, 0f); }
     }
 }

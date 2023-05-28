@@ -10,16 +10,11 @@ public class PlayerMovementSea : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 moveVal;
 
-    // Update is called once per frame
-    void Update()
-    {
-        moveVal = InputManager.Instance.GetSeaMoveRaw() * speed * Time.deltaTime;
-    }
-
     private void FixedUpdate()
     {
         if (DialougeManager.Instance.dialougePlaying) { return; }
 
+        moveVal = InputManager.Instance.GetSeaMoveRaw() * speed * Time.deltaTime;
         rb.MovePosition(rb.position + moveVal);
     }
 

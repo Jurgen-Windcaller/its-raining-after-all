@@ -11,8 +11,11 @@ public class DialougeManager : Singleton<DialougeManager>
     [SerializeField] private GameObject dialougePanel;
     [SerializeField] private TextMeshProUGUI dialougeTextUI;
 
+    [SerializeField] private float typingSpeed = 0.05f;
+
     private Story story;
     private Vector3 NPCPosition;
+    private Coroutine lineCoroutine;
 
     // Start is called before the first frame update
     void Start()
@@ -39,7 +42,12 @@ public class DialougeManager : Singleton<DialougeManager>
 
     private void ContinueDialouge()
     {
-        if (story.canContinue) { dialougeTextUI.text = story.Continue(); }
+        if (story.canContinue) 
+        {
+            if (lineCoroutine != null) { StopCoroutine(lineCoroutine); }
+
+            lineCoroutine = StartCoroutine(DisplayLine(story.Continue())); 
+        }
         else { StartCoroutine(ExitDialogue()); }
     }
 
@@ -49,6 +57,17 @@ public class DialougeManager : Singleton<DialougeManager>
 
         SetDialouge(false);
         dialougeTextUI.text = "";
+    }
+
+    private IEnumerator DisplayLine(string line)
+    {
+        dialougeTextUI.text = "";
+
+        foreach (char letter in line.ToCharArray())
+        {
+            dialougeTextUI.text += letter;
+            yield return new WaitForSeconds(typingSpeed);
+        }
     }
 
     private void SetDialouge(bool set)

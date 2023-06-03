@@ -9,6 +9,7 @@ public class DialougeManager : Singleton<DialougeManager>
     [HideInInspector] public bool dialougePlaying { get; private set; }
 
     [SerializeField] private GameObject dialougePanel;
+    [SerializeField] private GameObject continueIcon;
     [SerializeField] private TextMeshProUGUI dialougeTextUI;
 
     [SerializeField] private float typingSpeed = 0.05f;
@@ -16,6 +17,8 @@ public class DialougeManager : Singleton<DialougeManager>
     private Story story;
     private Vector3 NPCPosition;
     private Coroutine lineCoroutine;
+
+    private bool canContinue = false;
 
     // Start is called before the first frame update
     void Start()
@@ -28,7 +31,7 @@ public class DialougeManager : Singleton<DialougeManager>
     void Update()
     {
         if (!dialougePlaying) { return; }
-        if (InputManager.Instance.GetSubmitting()) { ContinueDialouge(); }
+        if (canContinue && InputManager.Instance.GetSubmitting()) { ContinueDialouge(); }
     }
 
     public void EnterDialouge(TextAsset JSON, Transform NPCTransform)
@@ -63,11 +66,19 @@ public class DialougeManager : Singleton<DialougeManager>
     {
         dialougeTextUI.text = "";
 
+        canContinue = false;
+        continueIcon.SetActive(false);
+
         foreach (char letter in line.ToCharArray())
         {
+            if (InputManager.Instance.GetSubmitting()) { dialougeTextUI.text = line; break; }
+
             dialougeTextUI.text += letter;
             yield return new WaitForSeconds(typingSpeed);
         }
+
+        canContinue = true;
+        continueIcon.SetActive(true);
     }
 
     private void SetDialouge(bool set)

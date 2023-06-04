@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7e496f494edb9124aa1e0f55570fdca2
+guid: 14c10905eaab56a4c95e42a252c8f054
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -102,6 +102,18 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
     buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -114,23 +126,11 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
     buildTarget: Windows Store Apps
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -141,7 +141,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ground_tiles_2_0
+      name: ground_tiles_2.1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -153,21 +153,19 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape:
-      - - {x: 12, y: 16}
-        - {x: -16, y: -13}
-        - {x: -16, y: -16}
+      - - {x: -16, y: -16}
         - {x: 16, y: -16}
         - {x: 16, y: 16}
       tessellationDetail: 0
       bones: []
-      spriteID: fa4c07b3cffd8ed43ad5ca71e8642df7
-      internalID: -2133689346
+      spriteID: dc73c2b51d096ca42ab307b1932aaf8f
+      internalID: 992267275
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ground_tiles_2_1
+      name: ground_tiles_2.1_1
       rect:
         serializedVersion: 2
         x: 32
@@ -182,18 +180,16 @@ TextureImporter:
       - - {x: -16, y: 16}
         - {x: -16, y: -16}
         - {x: 16, y: -16}
-        - {x: 16, y: -13}
-        - {x: -13, y: 16}
       tessellationDetail: 0
       bones: []
-      spriteID: 8ea2a368415b1b84b91d903a8a25c90a
-      internalID: -1305716381
+      spriteID: b808bf58f51a5ed418120e1ffee2e9a3
+      internalID: 1029712306
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ground_tiles_2_2
+      name: ground_tiles_2.1_2
       rect:
         serializedVersion: 2
         x: 0
@@ -206,20 +202,18 @@ TextureImporter:
       outline: []
       physicsShape:
       - - {x: -16, y: 16}
-        - {x: -16, y: 13}
-        - {x: 13, y: -16}
         - {x: 16, y: -16}
         - {x: 16, y: 16}
       tessellationDetail: 0
       bones: []
-      spriteID: 840dddb667a250a4880d5e49d85a7278
-      internalID: 1739014651
+      spriteID: 83247f48089b4b24eabb42ab3ac6f25a
+      internalID: 1800156541
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ground_tiles_2_3
+      name: ground_tiles_2.1_3
       rect:
         serializedVersion: 2
         x: 32
@@ -233,13 +227,11 @@ TextureImporter:
       physicsShape:
       - - {x: -16, y: 16}
         - {x: -16, y: -16}
-        - {x: -13, y: -16}
-        - {x: 16, y: 13}
         - {x: 16, y: 16}
       tessellationDetail: 0
       bones: []
-      spriteID: 6c0e4603820622944b6457bae7ad17f4
-      internalID: 555003116
+      spriteID: 1f6f16e6727fcf948870653e671fce24
+      internalID: 1730223588
       vertices: []
       indices: 
       edges: []
@@ -255,10 +247,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      ground_tiles_2_0: -2133689346
-      ground_tiles_2_1: -1305716381
-      ground_tiles_2_2: 1739014651
-      ground_tiles_2_3: 555003116
+      ground_tiles_2.1_0: 992267275
+      ground_tiles_2.1_1: 1029712306
+      ground_tiles_2.1_2: 1800156541
+      ground_tiles_2.1_3: 1730223588
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

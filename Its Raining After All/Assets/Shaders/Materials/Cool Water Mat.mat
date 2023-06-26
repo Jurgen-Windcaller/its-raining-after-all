@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Cool Water Mat
-  m_Shader: {fileID: -6465566751694194690, guid: dd5d570448e908944925699066bef87e, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 5f6233a8482032b40aee9572ae5ef152, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -55,7 +55,9 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _OffsetSpeed: 1
     - _WaveOffset: 2
     - _WaveSpeed: 1.5
-    m_Colors: []
+    m_Colors:
+    - _Offset: {r: 0, g: 0.02, b: 0, a: 0}
   m_BuildTextureStacks: []

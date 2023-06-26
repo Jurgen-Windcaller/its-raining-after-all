@@ -20,11 +20,12 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
+    flipGreenChannel: 0
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
-  ignoreMasterTextureLimit: 0
+  ignoreMipmapLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -63,6 +64,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  swizzle: 50462976
   cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
@@ -75,6 +77,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -87,6 +90,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -99,6 +103,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -111,6 +116,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -123,6 +129,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
@@ -135,6 +142,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
+    ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
@@ -146,10 +154,10 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 35
-        height: 62
+        width: 15
+        height: 44
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -165,12 +173,12 @@ TextureImporter:
       name: virran_walk_right_1
       rect:
         serializedVersion: 2
-        x: 35
+        x: 15
         y: 0
-        width: 35
-        height: 62
+        width: 15
+        height: 44
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -186,12 +194,12 @@ TextureImporter:
       name: virran_walk_right_2
       rect:
         serializedVersion: 2
-        x: 70
+        x: 30
         y: 0
-        width: 35
-        height: 62
+        width: 15
+        height: 44
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -207,12 +215,12 @@ TextureImporter:
       name: virran_walk_right_3
       rect:
         serializedVersion: 2
-        x: 105
+        x: 45
         y: 0
-        width: 35
-        height: 62
+        width: 15
+        height: 44
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -228,18 +236,18 @@ TextureImporter:
       name: virran_walk_right_4
       rect:
         serializedVersion: 2
-        x: 140
+        x: 60
         y: 0
-        width: 35
-        height: 62
+        width: 15
+        height: 44
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7996226095b751343b579ee1bde0e3e7
+      spriteID: 3a9e1e99f32ab1c479c92e04d987b1a9
       internalID: -578824578
       vertices: []
       indices: 
@@ -249,18 +257,18 @@ TextureImporter:
       name: virran_walk_right_5
       rect:
         serializedVersion: 2
-        x: 176
+        x: 75
         y: 0
-        width: 35
-        height: 62
+        width: 15
+        height: 44
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d3bd45b375776ab489d1696f1dfa46a6
+      spriteID: 414f8be7319af8b4aa79aaff0de04c28
       internalID: -1685146937
       vertices: []
       indices: 
@@ -270,18 +278,18 @@ TextureImporter:
       name: virran_walk_right_6
       rect:
         serializedVersion: 2
-        x: 211
+        x: 90
         y: 0
-        width: 35
-        height: 62
+        width: 15
+        height: 44
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2c94a4a9580dc7d419e8a5342c7539c6
+      spriteID: a9bc815490e797e46a944733d1d4c09d
       internalID: -797940456
       vertices: []
       indices: 
@@ -291,18 +299,18 @@ TextureImporter:
       name: virran_walk_right_7
       rect:
         serializedVersion: 2
-        x: 246
+        x: 105
         y: 0
-        width: 35
-        height: 62
+        width: 15
+        height: 44
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bb749678dc6bada47934236b8330b50f
+      spriteID: 0490cb4524c32524e8122d6e192bd74c
       internalID: 611568577
       vertices: []
       indices: 
@@ -327,9 +335,8 @@ TextureImporter:
       virran_walk_right_5: -1685146937
       virran_walk_right_6: -797940456
       virran_walk_right_7: 611568577
-  spritePackingTag: 
+  mipmapLimitGroupName: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

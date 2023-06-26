@@ -144,12 +144,12 @@ TextureImporter:
       name: virran_walk_left_0
       rect:
         serializedVersion: 2
-        x: 3
+        x: 0
         y: 0
         width: 35
-        height: 64
+        height: 62
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -165,12 +165,12 @@ TextureImporter:
       name: virran_walk_left_1
       rect:
         serializedVersion: 2
-        x: 41
+        x: 35
         y: 0
         width: 35
-        height: 64
+        height: 62
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -186,12 +186,12 @@ TextureImporter:
       name: virran_walk_left_2
       rect:
         serializedVersion: 2
-        x: 79
+        x: 70
         y: 0
         width: 35
-        height: 64
+        height: 62
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -207,12 +207,12 @@ TextureImporter:
       name: virran_walk_left_3
       rect:
         serializedVersion: 2
-        x: 117
+        x: 105
         y: 0
         width: 35
-        height: 64
+        height: 62
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -228,12 +228,12 @@ TextureImporter:
       name: virran_walk_left_4
       rect:
         serializedVersion: 2
-        x: 155
+        x: 141
         y: 0
         width: 35
-        height: 64
+        height: 62
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -249,12 +249,12 @@ TextureImporter:
       name: virran_walk_left_5
       rect:
         serializedVersion: 2
-        x: 193
+        x: 176
         y: 0
         width: 35
-        height: 64
+        height: 62
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -270,12 +270,12 @@ TextureImporter:
       name: virran_walk_left_6
       rect:
         serializedVersion: 2
-        x: 231
+        x: 211
         y: 0
         width: 35
-        height: 64
+        height: 62
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -291,12 +291,12 @@ TextureImporter:
       name: virran_walk_left_7
       rect:
         serializedVersion: 2
-        x: 269
+        x: 246
         y: 0
         width: 35
-        height: 64
+        height: 62
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

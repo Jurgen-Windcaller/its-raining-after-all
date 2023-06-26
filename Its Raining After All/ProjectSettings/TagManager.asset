@@ -48,6 +48,9 @@ TagManager:
   - name: Ocean
     uniqueID: 112036021
     locked: 0
+  - name: Environment
+    uniqueID: 1544079215
+    locked: 0
   - name: Foreground
     uniqueID: 914807813
     locked: 0

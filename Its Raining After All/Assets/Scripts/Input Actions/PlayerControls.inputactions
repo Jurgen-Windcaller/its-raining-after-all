@@ -40,6 +40,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Smack",
+                    "type": "Button",
+                    "id": "ab21631d-2bfb-4830-a8d8-dab85441076e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -163,6 +172,17 @@
                     "action": "Continue",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a1dcb9a2-c0dc-47c6-bd00-860875fc6cb7",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Smack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },
@@ -192,6 +212,24 @@
                     "name": "Continue",
                     "type": "Button",
                     "id": "997e9639-b1ea-48a0-8f8b-8cd99d076989",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Smack",
+                    "type": "Button",
+                    "id": "979bbbe9-e75c-4a1f-bd47-8cd677f3c475",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Wave",
+                    "type": "Button",
+                    "id": "8359c50d-8309-4a95-a5e4-e6531787c213",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -328,6 +366,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Continue",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "0e912e59-1cc0-445e-b632-34d1685f2a41",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Smack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d4ee8016-7f68-41b4-8a0c-fd1d2a5128ca",
+                    "path": "<Keyboard>/q",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Wave",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

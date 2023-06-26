@@ -146,8 +146,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 45
-        height: 37
+        width: 32
+        height: 36
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -155,7 +155,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 26a66980b8c9d714b9338e5c9dfb0bdf
+      spriteID: b81dd57c3a7f1874eae1731c356bf92a
       internalID: -717080649
       vertices: []
       indices: 
@@ -165,10 +165,10 @@ TextureImporter:
       name: virran_swim_left_1
       rect:
         serializedVersion: 2
-        x: 45
+        x: 32
         y: 0
-        width: 45
-        height: 37
+        width: 32
+        height: 36
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -176,7 +176,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b76f04104da0521458d910a662aa1213
+      spriteID: 2ad32993d2bfecf478903159ac150850
       internalID: 649404484
       vertices: []
       indices: 
@@ -186,10 +186,10 @@ TextureImporter:
       name: virran_swim_left_2
       rect:
         serializedVersion: 2
-        x: 90
+        x: 64
         y: 0
-        width: 45
-        height: 37
+        width: 32
+        height: 36
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -197,7 +197,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 463ec75c8b9c03541ba73a9680a2d88b
+      spriteID: 14fcc8cc24d5a4c41972764b3626b3c4
       internalID: 407179553
       vertices: []
       indices: 
@@ -207,10 +207,10 @@ TextureImporter:
       name: virran_swim_left_3
       rect:
         serializedVersion: 2
-        x: 135
+        x: 96
         y: 0
-        width: 45
-        height: 37
+        width: 32
+        height: 36
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -218,7 +218,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e1a33b90953578e46808ea0fb6351fc7
+      spriteID: 6c187b943599a1c40a23c59521979e22
       internalID: -1280532294
       vertices: []
       indices: 
@@ -228,10 +228,10 @@ TextureImporter:
       name: virran_swim_left_4
       rect:
         serializedVersion: 2
-        x: 180
+        x: 128
         y: 0
-        width: 45
-        height: 37
+        width: 32
+        height: 36
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -239,7 +239,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: be19b7f4096f99445a4a692a8561a83f
+      spriteID: 66a77f8a6d0b0a749bba3ad2c9115599
       internalID: -304182394
       vertices: []
       indices: 

@@ -141,169 +141,169 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: virran_walk_sheet_0
+      name: virran_walk_right_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 35
-        height: 64
+        height: 62
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 302059a5bf8d4b04f848d7faf9e61fc3
-      internalID: 948568280
+      spriteID: d8bf1867177c92c408a6e521f9845d1c
+      internalID: -481367929
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: virran_walk_sheet_1
+      name: virran_walk_right_1
       rect:
         serializedVersion: 2
-        x: 38
+        x: 35
         y: 0
         width: 35
-        height: 64
+        height: 62
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5641ab9e538aeb0409466282584aab1b
-      internalID: 1487343745
+      spriteID: aa8901a36f26bfe468c34551c58b519c
+      internalID: 317702022
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: virran_walk_sheet_2
+      name: virran_walk_right_2
       rect:
         serializedVersion: 2
-        x: 76
+        x: 70
         y: 0
         width: 35
-        height: 64
+        height: 62
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b0a7e05e8215c054e8c0c91273a346f1
-      internalID: -1520588858
+      spriteID: 41f951016ca36a8498531dddc81946bd
+      internalID: -307807173
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: virran_walk_sheet_3
+      name: virran_walk_right_3
       rect:
         serializedVersion: 2
-        x: 114
+        x: 105
         y: 0
         width: 35
-        height: 64
+        height: 62
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ab5eb606f5f81fb4b9348533891d09e7
-      internalID: 1564395186
+      spriteID: d38a1c72d37a2b844b4497692c31e2bd
+      internalID: -379712094
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: virran_walk_sheet_4
+      name: virran_walk_right_4
       rect:
         serializedVersion: 2
-        x: 152
+        x: 140
         y: 0
         width: 35
-        height: 64
+        height: 62
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8c463ff2df9baf74faa26361e2a5cb12
-      internalID: -1423195448
+      spriteID: 7996226095b751343b579ee1bde0e3e7
+      internalID: -578824578
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: virran_walk_sheet_5
+      name: virran_walk_right_5
       rect:
         serializedVersion: 2
-        x: 190
+        x: 176
         y: 0
         width: 35
-        height: 64
+        height: 62
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ba2dc25d0fd80ce46bf10e63ee6acd02
-      internalID: -177677745
+      spriteID: d3bd45b375776ab489d1696f1dfa46a6
+      internalID: -1685146937
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: virran_walk_sheet_6
+      name: virran_walk_right_6
       rect:
         serializedVersion: 2
-        x: 228
+        x: 211
         y: 0
         width: 35
-        height: 64
+        height: 62
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 459793e5fb4c0df4b8ce69860e6c620f
-      internalID: -2040843836
+      spriteID: 2c94a4a9580dc7d419e8a5342c7539c6
+      internalID: -797940456
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: virran_walk_sheet_7
+      name: virran_walk_right_7
       rect:
         serializedVersion: 2
-        x: 266
+        x: 246
         y: 0
         width: 35
-        height: 64
+        height: 62
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 62369f4888d3f5146a24c0bcc285f60e
-      internalID: -1808170300
+      spriteID: bb749678dc6bada47934236b8330b50f
+      internalID: 611568577
       vertices: []
       indices: 
       edges: []
@@ -319,14 +319,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      virran_walk_sheet_0: 948568280
-      virran_walk_sheet_1: 1487343745
-      virran_walk_sheet_2: -1520588858
-      virran_walk_sheet_3: 1564395186
-      virran_walk_sheet_4: -1423195448
-      virran_walk_sheet_5: -177677745
-      virran_walk_sheet_6: -2040843836
-      virran_walk_sheet_7: -1808170300
+      virran_walk_right_0: -481367929
+      virran_walk_right_1: 317702022
+      virran_walk_right_2: -307807173
+      virran_walk_right_3: -379712094
+      virran_walk_right_4: -578824578
+      virran_walk_right_5: -1685146937
+      virran_walk_right_6: -797940456
+      virran_walk_right_7: 611568577
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

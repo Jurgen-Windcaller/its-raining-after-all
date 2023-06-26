@@ -19,8 +19,7 @@ public class PlayerAnimation : MonoBehaviour
     {
         groundMove = GetComponent<PlayerMovementGround>();
         waterDetector = GetComponent<WaterDetector>();
-
-        animator = GetComponentInChildren<Animator>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame

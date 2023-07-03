@@ -4,12 +4,18 @@ using UnityEngine;
 
 public class PlayerAttacks : MonoBehaviour
 {
+    [SerializeField] private LayerMask enemyLayers;
+    [SerializeField] private GameObject smackHurtbox;
+    //[SerializeField] private Transform waveHurtbox;
+    [SerializeField] private AnimationClip smackAnim;
+
     private Animator animator;
 
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
+        smackHurtbox.SetActive(false);
     }
 
     // Update is called once per frame
@@ -24,7 +30,7 @@ public class PlayerAttacks : MonoBehaviour
         if (InputManager.Instance.GetSmack())
         {
             animator.SetTrigger("Smack");
-            Debug.Log("The character is attacking");
+            StartCoroutine(smackHurtboxTimer(0.40f));
         }
     }
 
@@ -34,5 +40,13 @@ public class PlayerAttacks : MonoBehaviour
         {
             Debug.Log("The character is doing knockback");
         }
+    }
+
+    private IEnumerator smackHurtboxTimer(float inactiveTime)
+    {
+        yield return new WaitForSeconds(inactiveTime);
+        smackHurtbox.SetActive(true);
+        yield return new WaitForSeconds(smackAnim.length - inactiveTime);
+        smackHurtbox.SetActive(false);
     }
 }

@@ -9,6 +9,7 @@ public class PlayerAnimation : MonoBehaviour
     [HideInInspector] public int yVel;
 
     private PlayerMovementGround groundMove;
+    private PlayerAttacks attacks;
     private WaterDetector waterDetector;
     private Animator animator;
 
@@ -18,6 +19,7 @@ public class PlayerAnimation : MonoBehaviour
     void Awake()
     {
         groundMove = GetComponent<PlayerMovementGround>();
+        attacks = GetComponent<PlayerAttacks>();
         waterDetector = GetComponent<WaterDetector>();
         animator = GetComponent<Animator>();
     }

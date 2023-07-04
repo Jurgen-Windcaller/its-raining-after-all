@@ -1102,7 +1102,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   smackHurtbox: {fileID: 649554697}
+  waveHurtbox: {fileID: 0}
   smackAnim: {fileID: 7400000, guid: d3ff9b1853e584e43be35ff0de2c3f0c, type: 2}
+  waveAnim: {fileID: 0}
 --- !u!1 &370981029
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class PlayerAttacks : MonoBehaviour
 {
-    [SerializeField] private LayerMask enemyLayers;
-    [SerializeField] private GameObject smackHurtbox;
-    //[SerializeField] private Transform waveHurtbox;
-    [SerializeField] private AnimationClip smackAnim;
+    public LayerMask enemyLayers;
 
+    [SerializeField] private GameObject smackHurtbox;
+    [SerializeField] private GameObject waveHurtbox;
+    [SerializeField] private AnimationClip smackAnim;
+    [SerializeField] private AnimationClip waveAnim;
+
+    private List<Collider2D> hitEnemies = new List<Collider2D>();
     private Animator animator;
 
     // Start is called before the first frame update
@@ -49,4 +52,6 @@ public class PlayerAttacks : MonoBehaviour
         yield return new WaitForSeconds(smackAnim.length - inactiveTime);
         smackHurtbox.SetActive(false);
     }
+
+    public void AddHitEnemy(Collider2D enemy) { hitEnemies.Add(enemy); }
 }

@@ -9,15 +9,15 @@ public class PlayerAnimation : MonoBehaviour
     [HideInInspector] public int yVel;
 
     private PlayerMovementGround groundMove;
+    private PlayerMovementSea seaMove;
     private WaterDetector waterDetector;
     private Animator animator;
-
-    private int prevFaceDir = 1;
 
     // Start is called before the first frame update
     void Awake()
     {
         groundMove = GetComponent<PlayerMovementGround>();
+        seaMove = GetComponent<PlayerMovementSea>();
         waterDetector = GetComponent<WaterDetector>();
         animator = GetComponent<Animator>();
     }
@@ -25,8 +25,8 @@ public class PlayerAnimation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        facingGround = GetFacingDir(InputManager.Instance.GetGroundMoveRaw());
-        facingSea = GetFacingDir(InputManager.Instance.GetSeaMoveRaw().x);
+        facingGround = groundMove.facing;
+        facingSea = seaMove.facing;
 
         yVel = GetYVelocity(groundMove.rb.velocity.y);
 
@@ -51,23 +51,6 @@ public class PlayerAnimation : MonoBehaviour
         //Debug.Log("Water Facing: " + animator.GetFloat("In Water"));
         //Debug.Log("Direction: " + animator.GetFloat("Direction"));
         //Debug.Log("Water Direction: " + animator.GetFloat("In Water"));
-    }
-
-    private int GetFacingDir(float moveDir)
-    {
-        switch (moveDir)
-        {
-            case -1f:
-                prevFaceDir = -1;
-                return -1;
-
-            case 1f:
-                prevFaceDir = 1;
-                return 1;
-
-            default:
-                return prevFaceDir;
-        }
     }
 
     private int GetYVelocity(float rawVelocity)

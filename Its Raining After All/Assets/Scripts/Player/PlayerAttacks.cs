@@ -6,18 +6,23 @@ public class PlayerAttacks : MonoBehaviour
 {
     public LayerMask enemyLayers;
 
+    [Header("Hurtbox Objects")]
     [SerializeField] private GameObject smackHurtbox;
     [SerializeField] private GameObject waveHurtbox;
+
+    [Header("Animations")]
     [SerializeField] private AnimationClip smackAnim;
     [SerializeField] private AnimationClip waveAnim;
 
-    private List<Collider2D> hitEnemies = new List<Collider2D>();
+    [Header("Settings")]
+    [SerializeField] private Vector2 knockbackForce;
+
     private Animator animator;
 
     // Start is called before the first frame update
     void Start()
     {
-        animator = GetComponent<Animator>();
+        animator = gameObject.GetComponent<Animator>();
         smackHurtbox.SetActive(false);
     }
 
@@ -53,5 +58,9 @@ public class PlayerAttacks : MonoBehaviour
         smackHurtbox.SetActive(false);
     }
 
-    public void AddHitEnemy(Collider2D enemy) { hitEnemies.Add(enemy); }
+    public void HitEnemy(Rigidbody2D enemy) 
+    {
+        Debug.Log("Hit " + enemy.name);
+        enemy.AddForce(knockbackForce, ForceMode2D.Impulse);
+    }
 }

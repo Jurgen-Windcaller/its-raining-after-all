@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class Hurtbox : MonoBehaviour
 {
@@ -9,10 +8,9 @@ public class Hurtbox : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        // checks if collision is in the enemy layer mask
-        if (attackManager.enemyLayers == (attackManager.enemyLayers | (1 << collision.gameObject.layer)))
+        if (attackManager.enemyLayers.ContainsLayer(collision.gameObject.layer))
         {
-            attackManager.AddHitEnemy(collision);
+            attackManager.HitEnemy(collision.GetComponent<Rigidbody2D>());
         }
     }
 }

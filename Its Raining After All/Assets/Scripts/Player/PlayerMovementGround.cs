@@ -6,6 +6,8 @@ public class PlayerMovementGround : MonoBehaviour
 {
     [HideInInspector] public Rigidbody2D rb;
 
+    [HideInInspector] public int facing = 1;
+
     [HideInInspector] public bool grounded;
 
     [SerializeField] private LayerMask groundedMask;
@@ -28,9 +30,13 @@ public class PlayerMovementGround : MonoBehaviour
 
     private CapsuleCollider2D playerCol;
 
+    private SpriteRenderer sprite;
+
     private float slopeDownAngle;
     private float prevSlopeDownAngle;
     private float slopeSideAngle;
+
+    private int prevFaceDir = 1;
 
     private bool onSlope;
     private bool jumping;
@@ -40,6 +46,7 @@ public class PlayerMovementGround : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         playerCol = GetComponent<CapsuleCollider2D>();
+        sprite = GetComponentInChildren<SpriteRenderer>();
 
         colSize = playerCol.size;
     }
@@ -47,7 +54,10 @@ public class PlayerMovementGround : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-  
+        facing = GetFacingDir(InputManager.Instance.GetGroundMoveRaw());
+
+        if (facing == 1) { sprite.flipX = false; }
+        else { sprite.flipX = true; }
     }
 
     private void OnDrawGizmos()
@@ -166,6 +176,23 @@ public class PlayerMovementGround : MonoBehaviour
         else
         {
             rb.sharedMaterial = noFriction;
+        }
+    }
+
+    private int GetFacingDir(float moveDir)
+    {
+        switch (moveDir)
+        {
+            case -1f:
+                prevFaceDir = -1;
+                return -1;
+
+            case 1f:
+                prevFaceDir = 1;
+                return 1;
+
+            default:
+                return prevFaceDir;
         }
     }
 }

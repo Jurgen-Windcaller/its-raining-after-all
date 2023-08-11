@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class PlayerMovementGround : MonoBehaviour
 {
-    [HideInInspector] public Rigidbody2D rb;
+    private Rigidbody2D rb;
 
     [HideInInspector] public int facing = 1;
-
     [HideInInspector] public bool grounded;
 
     [SerializeField] private LayerMask groundedMask;
 
-    [SerializeField] private PhysicsMaterial2D fullFriction;
-    [SerializeField] private PhysicsMaterial2D noFriction;
+    [Header("Physics Materials")]
+    public PhysicsMaterial2D fullFriction;
+    public PhysicsMaterial2D noFriction;
 
+    [Header("Settings")]
     [SerializeField] private float groundSpeed = 5f;
     [SerializeField] private float jumpForce = 5f;
     [SerializeField] private float floorCheckRad = 0.07f;
@@ -30,7 +31,7 @@ public class PlayerMovementGround : MonoBehaviour
 
     private CapsuleCollider2D playerCol;
 
-    private SpriteRenderer sprite;
+    private PlayerAttacks attacks;
 
     private float slopeDownAngle;
     private float prevSlopeDownAngle;
@@ -46,7 +47,7 @@ public class PlayerMovementGround : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         playerCol = GetComponent<CapsuleCollider2D>();
-        sprite = GetComponentInChildren<SpriteRenderer>();
+        attacks = GetComponent<PlayerAttacks>();
 
         colSize = playerCol.size;
     }
@@ -56,8 +57,14 @@ public class PlayerMovementGround : MonoBehaviour
     {
         facing = GetFacingDir(InputManager.Instance.GetGroundMoveRaw());
 
-        if (facing == 1) { sprite.flipX = false; }
-        else { sprite.flipX = true; }
+        if (facing == 1) 
+        {
+            transform.localRotation = Quaternion.Euler(new Vector3(0f, 0f, 0f));
+        }
+        else 
+        {
+            transform.localRotation = Quaternion.Euler(new Vector3(0f, 180f, 0f));
+        }
     }
 
     private void OnDrawGizmos()
@@ -79,8 +86,11 @@ public class PlayerMovementGround : MonoBehaviour
         GroundCheck();
         SlopeCheck();
 
-        MovePlayer();
         JumpPlayer();
+
+        if (attacks.dashing) { return; }
+
+        MovePlayer();
     }
 
     private void MovePlayer()
@@ -156,7 +166,7 @@ public class PlayerMovementGround : MonoBehaviour
     {
         RaycastHit2D hit = Physics2D.Raycast(pos, Vector2.down, slopeCheckRad, groundedMask);
 
-        if(hit)
+        if (hit)
         {
             slopePerpendicular = Vector2.Perpendicular(hit.normal).normalized;
             slopeDownAngle = Vector2.Angle(hit.normal, Vector2.up);
@@ -169,14 +179,7 @@ public class PlayerMovementGround : MonoBehaviour
             Debug.DrawRay(hit.point, slopePerpendicular, Color.red);
         }
 
-        if (onSlope && InputManager.Instance.GetGroundMoveRaw() == 0f)
-        {
-            rb.sharedMaterial = fullFriction;
-        }
-        else
-        {
-            rb.sharedMaterial = noFriction;
-        }
+        SwitchPhysMaterial();
     }
 
     private int GetFacingDir(float moveDir)
@@ -195,4 +198,16 @@ public class PlayerMovementGround : MonoBehaviour
                 return prevFaceDir;
         }
     }
+
+    private void SwitchPhysMaterial()
+    {
+        if (onSlope && InputManager.Instance.GetGroundMoveRaw() == 0f)
+        {
+            rb.sharedMaterial = fullFriction;
+        }
+        else
+        {
+            rb.sharedMaterial = noFriction;
+        }
+}
 }

@@ -4,41 +4,50 @@ using UnityEngine;
 
 public class PlayerAttacks : MonoBehaviour
 {
-    public LayerMask enemyLayers;
+    [SerializeField] LayerMask enemyLayers;
+
+    [HideInInspector] public bool dashing = false;
 
     [Header("Hurtbox Objects")]
-    [SerializeField] private GameObject smackHurtbox;
     [SerializeField] private GameObject waveHurtbox;
 
     [Header("Animations")]
-    [SerializeField] private AnimationClip smackAnim;
+    [SerializeField] private AnimationClip dashAnim;
     [SerializeField] private AnimationClip waveAnim;
 
     [Header("Settings")]
     [SerializeField] private Vector2 knockbackForce;
 
+    [SerializeField] private float dashSpeed;
+    [SerializeField] private float dashTime;
+
     private Animator animator;
+
+    private Rigidbody2D rb;
+
+    private PlayerMovementGround groundMove;
 
     // Start is called before the first frame update
     void Start()
     {
-        animator = gameObject.GetComponent<Animator>();
-        smackHurtbox.SetActive(false);
+        animator = GetComponent<Animator>();
+        groundMove = GetComponent<PlayerMovementGround>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        Smack();
-        Wave();
+        Dash();
+        //Wave();
     }
 
-    private void Smack()
+    private void Dash()
     {
-        if (InputManager.Instance.GetSmack())
+        if (!dashing && InputManager.Instance.GetDash())
         {
-            animator.SetTrigger("Smack");
-            StartCoroutine(smackHurtboxTimer(0.40f));
+            animator.SetTrigger("Dash");
+            StartCoroutine(DashTimer(dashTime));
         }
     }
 
@@ -50,17 +59,30 @@ public class PlayerAttacks : MonoBehaviour
         }
     }
 
-    private IEnumerator smackHurtboxTimer(float inactiveTime)
+    private void HitEnemy(GameObject enemy) 
     {
-        yield return new WaitForSeconds(inactiveTime);
-        smackHurtbox.SetActive(true);
-        yield return new WaitForSeconds(smackAnim.length - inactiveTime);
-        smackHurtbox.SetActive(false);
+        Rigidbody2D enemyRb = enemy.GetComponent<Rigidbody2D>();
+        
+
+        enemyRb.AddForce(new Vector2(knockbackForce.x * groundMove.facing, knockbackForce.y), ForceMode2D.Impulse);
     }
 
-    public void HitEnemy(Rigidbody2D enemy) 
+    private IEnumerator DashTimer(float time)
     {
-        Debug.Log("Hit " + enemy.name);
-        enemy.AddForce(knockbackForce, ForceMode2D.Impulse);
+        dashing = true;
+        rb.velocity = new Vector2(dashSpeed * groundMove.facing * Time.fixedDeltaTime, rb.velocity.y);
+
+        yield return new WaitForSeconds(time);
+
+        rb.velocity = new Vector2(0f, rb.velocity.y);
+        dashing = false;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (enemyLayers.ContainsLayer(collision.gameObject.layer))
+        {
+            if (dashing) { HitEnemy(collision.gameObject); }
+        }
     }
 }

@@ -64,7 +64,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Smack"",
+                    ""name"": ""Dash"",
                     ""type"": ""Button"",
                     ""id"": ""ab21631d-2bfb-4830-a8d8-dab85441076e"",
                     ""expectedControlType"": ""Button"",
@@ -202,7 +202,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Smack"",
+                    ""action"": ""Dash"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -240,7 +240,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Smack"",
+                    ""name"": ""Dash"",
                     ""type"": ""Button"",
                     ""id"": ""979bbbe9-e75c-4a1f-bd47-8cd677f3c475"",
                     ""expectedControlType"": ""Button"",
@@ -398,7 +398,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Smack"",
+                    ""action"": ""Dash"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -424,13 +424,13 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Ground_Jump = m_Ground.FindAction("Jump", throwIfNotFound: true);
         m_Ground_Interact = m_Ground.FindAction("Interact", throwIfNotFound: true);
         m_Ground_Continue = m_Ground.FindAction("Continue", throwIfNotFound: true);
-        m_Ground_Smack = m_Ground.FindAction("Smack", throwIfNotFound: true);
+        m_Ground_Smack = m_Ground.FindAction("Dash", throwIfNotFound: true);
         // Water
         m_Water = asset.FindActionMap("Water", throwIfNotFound: true);
         m_Water_Move = m_Water.FindAction("Move", throwIfNotFound: true);
         m_Water_Interact = m_Water.FindAction("Interact", throwIfNotFound: true);
         m_Water_Continue = m_Water.FindAction("Continue", throwIfNotFound: true);
-        m_Water_Smack = m_Water.FindAction("Smack", throwIfNotFound: true);
+        m_Water_Smack = m_Water.FindAction("Dash", throwIfNotFound: true);
         m_Water_Wave = m_Water.FindAction("Wave", throwIfNotFound: true);
     }
 

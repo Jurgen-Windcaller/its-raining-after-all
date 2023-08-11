@@ -10,8 +10,12 @@ public class PlayerAnimation : MonoBehaviour
 
     private PlayerMovementGround groundMove;
     private PlayerMovementSea seaMove;
+
     private WaterDetector waterDetector;
+
     private Animator animator;
+
+    private Rigidbody2D rb;
 
     // Start is called before the first frame update
     void Awake()
@@ -20,6 +24,7 @@ public class PlayerAnimation : MonoBehaviour
         seaMove = GetComponent<PlayerMovementSea>();
         waterDetector = GetComponent<WaterDetector>();
         animator = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -28,7 +33,7 @@ public class PlayerAnimation : MonoBehaviour
         facingGround = groundMove.facing;
         facingSea = seaMove.facing;
 
-        yVel = GetYVelocity(groundMove.rb.velocity.y);
+        yVel = GetYVelocity(rb.velocity.y);
 
         animator.SetBool("In Water", waterDetector.inWater);
         animator.SetBool("Airborne", !groundMove.grounded);

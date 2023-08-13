@@ -6,7 +6,7 @@ public class PlayerAttacks : MonoBehaviour
 {
     [SerializeField] LayerMask enemyLayers;
 
-    [HideInInspector] public bool dashing = false;
+    public bool dashing = false;
 
     [Header("Hurtbox Objects")]
     [SerializeField] private GameObject waveHurtbox;

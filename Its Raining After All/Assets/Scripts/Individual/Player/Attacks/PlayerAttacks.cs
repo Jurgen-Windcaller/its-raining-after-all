@@ -20,6 +20,7 @@ public class PlayerAttacks : MonoBehaviour
 
     [SerializeField] private float dashSpeed;
     [SerializeField] private float dashTime;
+    [SerializeField] private int dashDmg;
 
     private Animator animator;
 
@@ -59,22 +60,23 @@ public class PlayerAttacks : MonoBehaviour
         }
     }
 
-    private void HitEnemy(GameObject enemy) 
+    private void Hit(GameObject obj) 
     {
-        Rigidbody2D enemyRb = enemy.GetComponent<Rigidbody2D>();
-        
+        Rigidbody2D objRb = obj.GetComponent<Rigidbody2D>();
+        EnemyHealth objHealth = obj.GetComponent<EnemyHealth>();
 
-        enemyRb.AddForce(new Vector2(knockbackForce.x * groundMove.facing, knockbackForce.y), ForceMode2D.Impulse);
+        objHealth.UpdateHealth(-dashDmg);
+        objRb.AddForce(new Vector2(knockbackForce.x * groundMove.facing, knockbackForce.y), ForceMode2D.Impulse);
     }
 
     private IEnumerator DashTimer(float time)
     {
         dashing = true;
-        rb.velocity = new Vector2(dashSpeed * groundMove.facing * Time.fixedDeltaTime, rb.velocity.y);
+        rb.velocity = new Vector2(dashSpeed * groundMove.facing * Time.fixedDeltaTime, 0f);
 
         yield return new WaitForSeconds(time);
 
-        rb.velocity = new Vector2(0f, rb.velocity.y);
+        rb.velocity = Vector2.zero;
         dashing = false;
     }
 
@@ -82,7 +84,7 @@ public class PlayerAttacks : MonoBehaviour
     {
         if (enemyLayers.ContainsLayer(collision.gameObject.layer))
         {
-            if (dashing) { HitEnemy(collision.gameObject); }
+            if (dashing) { Hit(collision.gameObject); }
         }
     }
 }
